@@ -15,7 +15,7 @@ class Websocket extends Component {
             url = process.env.WEBSOCKET_URI;
         } else {
             const {location} = window;
-            url = ((location.protocol === "https:") ? "wss://" : "ws://") + "localhost:8089/ws"; // location.href
+            url = ((location.protocol === "https:") ? "wss://" : "ws://") + location.host + "/ws";
         }
 
         let socket = new Socket(url);
