@@ -30,7 +30,7 @@ class ScriptOverview extends Component {
 
         return (
             <View title="Overview" subtitle="Scripts">
-                <button onClick={this.reloadScripts}>
+                <button className="btn btn-success" onClick={this.reloadScripts}>
                     Reload Scripts
                 </button>
             </View>
