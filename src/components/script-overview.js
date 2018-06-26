@@ -38,6 +38,7 @@ class ScriptOverview extends Component {
                 <button className="btn btn-success" onClick={this.reloadScripts}>
                     Reload Files
                 </button>
+                <br /><br />
                 <button className="btn btn-success" onClick={this.readFiles}>
                     Read Files
                 </button>
