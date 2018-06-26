@@ -9,11 +9,16 @@ class ScriptOverview extends Component {
     constructor(props) {
         super(props);
 
-        this.reloadScripts = this.reloadScripts.bind(this)
+        this.reloadScripts = this.reloadScripts.bind(this);
+        this.readFiles = this.readFiles.bind(this);
     }
 
     reloadScripts() {
-        this.props.socket.websocket.send('{"action": "reload_scripts"}');
+        this.props.socket.websocket.send('{"type": "scripter", "action": "script_reload"}');
+    }
+
+    readFiles() {
+        this.props.socket.websocket.send('{"type": "scripter", "action": "script_read", "dir": "lua/"}');
     }
 
     componentWillMount() {
@@ -31,7 +36,10 @@ class ScriptOverview extends Component {
         return (
             <View title="Overview" subtitle="Scripts">
                 <button className="btn btn-success" onClick={this.reloadScripts}>
-                    Reload Scripts
+                    Reload Files
+                </button>
+                <button className="btn btn-success" onClick={this.readFiles}>
+                    Read Files
                 </button>
             </View>
         );
