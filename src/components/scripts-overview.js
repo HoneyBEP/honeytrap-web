@@ -5,15 +5,15 @@ import { addSession, fetchSessions } from '../actions/index';
 import { Link } from 'react-router';
 import View from './view';
 
-class ScriptOverview extends Component {
+class ScriptsOverview extends Component {
     constructor(props) {
         super(props);
 
-        this.reloadScripts = this.reloadScripts.bind(this)
+        this.reloadScripts = this.reloadScripts.bind(this);
     }
 
     reloadScripts() {
-        this.props.socket.websocket.send('{"action": "reload_scripts"}');
+        this.props.socket.websocket.send('{"type": "scripter", "action": "script_reload"}');
     }
 
     componentWillMount() {
@@ -46,4 +46,4 @@ function mapStateToProps(state) {
 
 
 
-export default connect(mapStateToProps)(ScriptOverview);
+export default connect(mapStateToProps)(ScriptsOverview);
